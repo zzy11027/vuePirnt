@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     handleSave(data) {
+      console.log('data :>> ', data);
       let tempList = JSON.parse(localStorage.getItem('tempList')) || []
       tempList[this.index] = data
       localStorage.setItem('tempList', JSON.stringify(tempList))
