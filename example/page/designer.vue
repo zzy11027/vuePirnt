@@ -1,5 +1,5 @@
 <template>
-  <kr-print-designer :temp-value="value" :widget-options="widgets" :icon-options="iconArr" @save="handleSave" />
+  <vue-lodop-print :temp-value="value" :widget-options="widgets" :icon-options="iconArr" @save="handleSave" />
 </template>
 <script>
 import { OutStockOptions, InStockOptions, iconArr } from '../data/options'

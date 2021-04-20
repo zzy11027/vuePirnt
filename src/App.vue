@@ -23,7 +23,7 @@ import cloneDeep from 'lodash/cloneDeep'
 
 export default {
   mixins: [vptd],
-  name: 'kr-print-designer',
+  name: 'vue-lodop-print',
   components: { Viewport, Panel },
   props: {
     widgetOptions: {
