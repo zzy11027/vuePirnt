@@ -30,7 +30,7 @@ export default {
       console.log('tempList :>> ', tempList)
       this.widgets = this.value.type == 1 ? OutStockOptions : InStockOptions
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   },
   methods: {
