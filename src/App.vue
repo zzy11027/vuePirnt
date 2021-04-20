@@ -20,7 +20,8 @@ import vptd from './mixins/vptd'
 import Vue from 'vue'
 import widgets from './components/widgets'
 import cloneDeep from 'lodash/cloneDeep'
-
+import {OutStockOptions,InStockOptions,iconArr} from './data/data.js'
+console.log('OutStockOptions,InStockOptions,iconArr :>> ', OutStockOptions,InStockOptions,iconArr);
 export default {
   mixins: [vptd],
   name: 'vue-lodop-print',
@@ -28,10 +29,7 @@ export default {
   props: {
     widgetOptions: {
       type: Array,
-      default: () => [
-        { type: 'braid-txt', title: '静态文本', value: '静态文本', defaultValue: '静态文本' },
-        { type: 'braid-txt', title: '动态文本', value: '', defaultValue: '动态文本', dynamic: true }
-      ]
+      default: () => OutStockOptions
     },
     tempValue: {
       type: Object,
@@ -47,15 +45,7 @@ export default {
     },
     iconOptions: {
       type: Array,
-      default: () => ({
-        title: 'demo',
-        width: 750,
-        height: 550,
-        pageWidth: 750,
-        pageHeight: 550,
-        tempItems: [],
-        IconItems: []
-      })
+      default: () => iconArr
     }
   },
   created() {
