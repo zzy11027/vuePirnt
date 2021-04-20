@@ -38,7 +38,7 @@ export default {
       let tempList = JSON.parse(localStorage.getItem('tempList')) || []
       tempList[this.index] = data
       localStorage.setItem('tempList', JSON.stringify(tempList))
-      this.$router.back()
+      this.$router.back();
     }
   }
 }
