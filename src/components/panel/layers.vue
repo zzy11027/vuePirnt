@@ -26,7 +26,7 @@ export default {
   computed: {
     // 已添加的组件
     layers() {
-      return this.$vptd.state.page.tempItems
+      return [...this.$vptd.state.page.tempItems,...this.$vptd.state.page.IconItems]
     },
     activeElement() {
       return this.$vptd.state.activeElement
@@ -34,9 +34,16 @@ export default {
   },
   methods: {
     activeLayer(e, item) {
-      this.$vptd.commit('select', {
-        uuid: item.uuid,
-      })
+      if (item.type == 'braid-icon') {
+        this.$vptd.commit('selectIcon', {
+          uuid: item.uuid,
+        })
+      } else {
+        this.$vptd.commit('select', {
+          uuid: item.uuid,
+        })        
+      }
+
       let viewport = document.querySelector('#viewport')
       let target = viewport.querySelector(`[data-uuid='${item.uuid}']`)
       if (target && !checkInView(target)) {

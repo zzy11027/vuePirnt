@@ -31,16 +31,16 @@ function print(temp, data) {
   if (data.printContent > 1) {
     // 打印多份
     printContent.forEach((aPrint, index) => {
-      LODOP.NewPageA()
+      LODOP.NewPageA();
       aPrint.forEach(printItem => {
-        _AddPrintItem(LODOP, printItem, index)
-      })
-    })
+        _AddPrintItem(LODOP, printItem, index);
+      });
+    });
   } else {
     // 单份
     printContent[0].forEach(printItem => {
-      _AddPrintItem(LODOP, printItem)
-    })
+      _AddPrintItem(LODOP, printItem);
+    });
   }
 
   let flag = LODOP.PRINT()
@@ -104,7 +104,6 @@ function previewTemp(temp) {
 function _CreateLodop(pageName, width, height, pageWidth = 0, pageHeight = 0, top = 0, left = 0) {
   let LODOP = getLodop()
 
-  console.log(strCompanyName, strLicense, strLicenseA, strLicenseB)
 
   // 设置软件产品注册信息
   LODOP.SET_LICENSES(strCompanyName, strLicense, strLicenseA, strLicenseB)
@@ -169,7 +168,6 @@ function _TempParser(tempItem, data) {
  * @param {Number} pageIndex 当前打印页的开始序号
  */
 function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
-  console.log('LODOP,printItem,pageIndex :>> ', LODOP,printItem,pageIndex);
   // 批量打印时，修改关联打印项的关联序号
   if (printItem.style && printItem.style.LinkedItem == 1) {
     printItem.style.LinkedItem = 1 + pageIndex
@@ -198,7 +196,6 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
     case 'braid-html':
       {
         let html = htmlTempTohtml(printItem.defaultValue, printItem.style)
-        console.log('html :>> ', html);
         if (printItem.style && printItem.style.AutoHeight == 1) {
           LODOP.ADD_PRINT_HTM(
             printItem.top,
@@ -222,7 +219,6 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
     case 'braid-table':
       {
         let html = tableTempTohtml(printItem.columns, printItem.defaultValue, printItem.style)
-        // console.log('html :>> ', html);
         if (printItem.style && printItem.style.AutoHeight == 1) {
           LODOP.ADD_PRINT_TABLE(
             printItem.top,

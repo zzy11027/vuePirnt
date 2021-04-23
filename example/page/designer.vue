@@ -27,19 +27,22 @@ export default {
     try {
       let tempList = JSON.parse(localStorage.getItem('tempList')) || []
       this.value = tempList[this.index]
-      console.log('tempList :>> ', tempList)
       this.widgets = this.value.type == 1 ? OutStockOptions : InStockOptions
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   },
   methods: {
+<<<<<<< HEAD
     handleSave(data) {
       console.log('data :>> ', data);
+=======
+    handleSave(data,num) {
+>>>>>>> branch-1.0.0
       let tempList = JSON.parse(localStorage.getItem('tempList')) || []
       tempList[this.index] = data
       localStorage.setItem('tempList', JSON.stringify(tempList))
-      this.$router.back()
+      this.$router.back();
     }
   }
 }
