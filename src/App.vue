@@ -21,7 +21,6 @@ import Vue from 'vue'
 import widgets from './components/widgets'
 import cloneDeep from 'lodash/cloneDeep'
 import {OutStockOptions,InStockOptions,iconArr} from './data/data.js'
-console.log('OutStockOptions,InStockOptions,iconArr :>> ', OutStockOptions,InStockOptions,iconArr);
 export default {
   mixins: [vptd],
   name: 'vue-lodop-print',
