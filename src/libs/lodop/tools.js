@@ -140,6 +140,5 @@ export const htmlTempTohtml = (val, style) => {
   let html = '<span style=\'' + styleStr + '\'>'
   html += val
   html += '</span>'
-  console.log(html)
   return html
 }

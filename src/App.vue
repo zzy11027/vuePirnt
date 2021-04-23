@@ -49,7 +49,6 @@ export default {
     }
   },
   created() {
-    console.log('this.$vptd.state :>> ', this.$vptd.state)
     Vue.use(widgets)
 
     // 设置模板组件默认属性
@@ -61,11 +60,13 @@ export default {
       icon: cloneDeep(this.iconOptions)
     })
   },
+  mounted() {
+  },
   methods: {
     // 保存模板
     saveTemp() {
       let page = this.$vptd.state.page
-      this.$emit('save', cloneDeep(page))
+      this.$emit('save', cloneDeep(page),666)
     },
     // 预览模板
     previewTemp() {

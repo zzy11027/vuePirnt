@@ -38,12 +38,10 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$vptd.state.optionIcons)
   },
   methods: {
     // 添加组件
     addTempItem(e, item) {
-      console.log('e,item :>> ', e, item)
       switch (item.type) {
         // case 'braid-braid-icon': {
         //   let selectCol = []
