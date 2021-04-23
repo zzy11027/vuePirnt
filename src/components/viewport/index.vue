@@ -85,7 +85,6 @@ export default {
   },
 
   mounted() {
-    console.log('this.$vptd.state :>> ', this.$vptd.state);
     // 采用事件代理的方式监听元件的选中操作
     document.getElementById('viewport').addEventListener('mousedown', this.handleSelection, false)
 
@@ -127,12 +126,26 @@ export default {
      */
     handleSelection(e) {
       var target = this.selectTarget(e.target)
+      try {
+        var dataType = target.getAttribute('data-type')
+      } catch (error) {
+        this.$vptd.commit('select', {
+          uuid: -1
+        })
+      }
       if (target) {
         var uuid = target.getAttribute('data-uuid')
         // 设置选中元素
-        this.$vptd.commit('select', {
-          uuid: uuid || -1
-        })
+        if (dataType == 'braid-icon') {
+          this.$vptd.commit('selectIcon', {
+            uuid: uuid || -1
+          })  
+        } else {
+          this.$vptd.commit('select', {
+            uuid: uuid || -1
+          })          
+        }
+
         // 绑定移动事件：除背景图以外的元件才能移动
         target = this.$vptd.state.activeElement
         if (target.dragable) {
@@ -163,7 +176,6 @@ export default {
   },
   watch:{
     iconStore(a,b) {
-      console.log('a,b :>> ', a,b);
     }
   }
 }

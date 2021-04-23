@@ -3,7 +3,6 @@ import { getDefaultProps, styleMap } from "../libs/props.js";
 export default {
   // 初始化页面属性
   initPage(state, pageInfo) {
-    console.log("pageInfo :>> ", pageInfo);
     state.page = pageInfo;
     // 补全默认样式
     let tempItems = pageInfo.tempItems
@@ -20,11 +19,24 @@ export default {
         })
       : [];
     state.page.tempItems = tempItems;
-    state.page.IconItems = tempItems;
+
+    let IconItems = pageInfo.IconItems
+      ? pageInfo.IconItems.map(item => {
+          let iconOptionItem = {
+            ...state.widgetSetting[item.type],
+            ...item,
+            style: {
+              ...state.widgetSetting[item.type].style,
+              ...(item.style || {})
+            }
+          };
+          return iconOptionItem;
+        })
+      : [];
+    state.page.IconItems = IconItems;
   },
   // 初始化icon对象
   initIcon(state, options) {
-    console.log("options :>> ", options);
     // state.optionIcons = options;
     // state.page.IconItems = [];
 
@@ -46,7 +58,6 @@ export default {
   },
   // 初始化可选对象
   initOptionItems(state, options) {
-    console.log("icon :>> ", options);
     // 补全默认属性
     let optionsObject = options
       ? options.map(item => {
@@ -81,14 +92,12 @@ export default {
 
   // 选中元件与取消选中
   select(state, payload) {
-    console.log("payload :>> ", payload);
     state.uuid = payload.uuid;
     if (payload.uuid === -1) {
       state.activeElement = getDefaultProps();
       state.type = "page";
     } else {
       let widget = state.page.tempItems.find(w => w.uuid === payload.uuid);
-      console.log("widget :>> ", widget);
       state.activeElement = widget;
       state.type = widget.type;
     }
@@ -96,13 +105,11 @@ export default {
 
   selectIcon(state, payload) {
     state.uuid = payload.uuid;
-    console.log("state :>> ", state);
     if (payload.uuid === -1) {
       state.activeElement = getDefaultProps();
       state.type = "page";
     } else {
       let widget = state.page.IconItems.find(w => w.uuid === payload.uuid);
-      console.log("widget :>> ", widget);
       state.activeElement = widget;
       state.type = widget.type;
     }
@@ -190,7 +197,6 @@ export default {
 
   // 添加组件
   addTempItem(state, { data: data = null, item }) {
-    console.log("state,data,item :>> ", state, data, item);
     let def = { uuid: generate("1234567890abcdef", 10) };
     let setting = JSON.parse(JSON.stringify(item));
 
@@ -199,7 +205,6 @@ export default {
         state.page.tempItems.push(Object.assign(setting, val, def));
       });
     } else {
-      console.log("state,page.tempItems :>> ", state.page.tempItems);
 
       state.page.tempItems.push(Object.assign(setting, def));
     }
@@ -207,7 +212,6 @@ export default {
 
   //添加icon
   addIconItem(state, { data: data = null, item }) {
-    console.log("item :>> ", item);
     let def = { uuid: generate("1234567890abcdef", 10) };
     let setting = JSON.parse(JSON.stringify(item));
     if (data) {
@@ -215,9 +219,7 @@ export default {
         state.page.IconItems.push(Object.assign(setting, val, def));
       });
     } else {
-      console.log("state.page :>> ", state.page);
       state.page.IconItems.push(Object.assign(setting, def));
-      console.log("state.page.IconItems :>> ", state.page.IconItems);
     }
   },
 

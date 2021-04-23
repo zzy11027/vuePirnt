@@ -118,7 +118,8 @@ const defaultTemp = () => ({
   height: '',
   pageWidth: '',
   pageHeight: '',
-  tempItems: []
+  tempItems: [],
+  IconItems: [],
 })
 import { OutStockData, InStockData } from '../data/test'
 export default {
