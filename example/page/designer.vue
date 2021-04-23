@@ -33,12 +33,7 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
-    handleSave(data) {
-      console.log('data :>> ', data);
-=======
     handleSave(data,num) {
->>>>>>> branch-1.0.0
       let tempList = JSON.parse(localStorage.getItem('tempList')) || []
       tempList[this.index] = data
       localStorage.setItem('tempList', JSON.stringify(tempList))
