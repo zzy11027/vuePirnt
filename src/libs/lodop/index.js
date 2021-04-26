@@ -1,6 +1,6 @@
 import getLodop from './LodopFuncs'
 import cloneDeep from 'lodash/cloneDeep'
-import { tableTempTohtml, imageTempTohtml, strTempToValue, htmlTempTohtml } from './tools'
+import { tableTempTohtml, imageTempTohtml, strTempToValue, htmlTempTohtml,svgTempTosvg } from './tools'
 
 let strCompanyName = ''
 let strLicense = ''
@@ -54,7 +54,7 @@ function print(temp, data) {
  */
 function preview(temp, data) {
   let LODOP = _CreateLodop(temp.title, temp.width, temp.height, temp.pageWidth, temp.pageHeight)
-  let tempItems = cloneDeep(temp.tempItems)
+  let tempItems = cloneDeep([...temp.IconItems,...temp.tempItems])
   let printContent = _TempParser(tempItems, data)
   if (data.length > 1) {
     // 打印多份
@@ -81,8 +81,9 @@ function preview(temp, data) {
  */
 function previewTemp(temp) {
   let LODOP = _CreateLodop(temp.title, temp.width, temp.height, temp.pageWidth, temp.pageHeight)
-
-  let printContent = _TempParser(temp.tempItems)
+  const tempArr = [...temp.IconItems, ...temp.tempItems];
+  let printContent = _TempParser(tempArr);
+  // let printContent = _TempParser(temp.tempItems);
   printContent[0].forEach(printItem => {
     _AddPrintItem(LODOP, printItem)
   })
@@ -146,9 +147,9 @@ function _TempParser(tempItem, data) {
     data.forEach(dataItem => {
       let conItem = temp.map(tempItem => {
         let item = cloneDeep(tempItem)
-        if (item.name) {
-          item.defaultValue = dataItem[item.name]
-          item.value = strTempToValue(item.value, item.defaultValue || '')
+        if (item.name && item.type !== "braid-icon") {
+          item.defaultValue = dataItem[item.name];
+          item.value = strTempToValue(item.value, item.defaultValue || "");
         }
         return item
       })
@@ -253,7 +254,7 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
       break
     case 'braid-icon':
       {
-        let html = htmlTempTohtml(printItem.defaultValue, printItem.style);
+        let html = svgTempTosvg(printItem.defaultValue, printItem.style);
         if (printItem.style && printItem.style.AutoHeight == 1) {
           LODOP.ADD_PRINT_HTM(
             printItem.top,

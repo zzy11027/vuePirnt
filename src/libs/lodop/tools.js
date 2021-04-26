@@ -142,3 +142,13 @@ export const htmlTempTohtml = (val, style) => {
   html += '</span>'
   return html
 }
+
+export const svgTempTosvg = (svgDom, style) => {
+  const svg = `
+    <svg id="icon-biaodan" viewBox="0 0 1024 1024">
+      ${svgDom}
+    </svg>
+  `;
+  console.log("svgDom :>> ", svgDom);
+  return svg;
+};
