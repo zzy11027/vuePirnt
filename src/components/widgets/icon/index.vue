@@ -11,7 +11,7 @@
     }"
   >
   <svg class="icon" aria-hidden="true" :style="{fontSize:val.fontSize}">
-      <use :xlink:href="`#${val.class}`"></use>
+      <use ref="svgIcon" :xlink:href="`#${val.class}`"></use>
   </svg>
   <!-- <i class="iconfont" :class="val.class" :style="{fontSize:val.fontSize}"></i> -->
   </div>

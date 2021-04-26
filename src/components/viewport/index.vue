@@ -10,6 +10,7 @@
     >
       <!-- icon -->
       <component
+        ref="svgIcon"
         v-for="val in iconStore"
         :is="val.type"
         :data-title="val.type"
