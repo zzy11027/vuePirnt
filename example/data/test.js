@@ -78,5 +78,37 @@ export const InStockData = [
         isUseSn: '1',
         price: '12.00'
       }]
+  },
+  {
+    companyName: '某某偶科技公司',
+    purcheckCode: 'Rk-12345678910231',
+    unitName: '四川分销商',
+    purchaseSaleManName: '刘夏',
+    purcheckType: '采购入库',
+    warehouseName: '京东成都仓',
+    businessDate: '2020-08-27 12:00:00',
+    createUserName: '胡某某',
+    created: '2020-08-27 12:00:00',
+    remark: '备注一下',
+    totalPrice: '129.00',
+    details: [
+      {
+        productName: '苹果ipone11pro',
+        skuName: 'iphone11pro256g',
+        specModel: '165L',
+        quantity: 3,
+        snCode: '[SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1]',
+        isUseSn: '1',
+        price: '12.00'
+      },
+      {
+        productName: '苹果ipone11pro',
+        skuName: 'iphone11pro124g',
+        specModel: '165L',
+        quantity: 3,
+        snCode: '[SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1] [SPP1Y79G1]',
+        isUseSn: '1',
+        price: '12.00'
+      }]
   }
 ]
