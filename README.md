@@ -54,6 +54,15 @@ this.$lodop.setLicenses(licenseInfo);
 | ------------- | ---------------- | ------ | ------ |
 | tempValue     | 模板对象         | Object | ;      |
 | widgetOptions | 模板设计选项配置 | Array  | []     |
+| iconOptions   | 图标配置项      | Array  | {
+    type: "braid-icon",
+    isEdit: 1,
+    title: "表单icon",
+    value: "表单icon",
+    defaultValue: "表单icon",
+    name: "icon-1",
+    class: "icon-biaodan"
+  }|
 
 ### tempValue 参数详解
 
