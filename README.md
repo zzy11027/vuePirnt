@@ -54,6 +54,7 @@ this.$lodop.setLicenses(licenseInfo);
 | ------------- | ---------------- | ------ | ------ |
 | tempValue     | 模板对象         | Object | ;      |
 | widgetOptions | 模板设计选项配置 | Array  | []     |
+| iconOptions   | 图标配置项      | Array  | [{}] 参见./data/data.js |
 
 ### tempValue 参数详解
 
@@ -67,6 +68,7 @@ this.$lodop.setLicenses(licenseInfo);
   pageWidth: 750,
   pageHeight: 550,
   tempItems: [],
+  IconItems: []
 }
 ```
 
@@ -84,6 +86,35 @@ tempValue 为打印模板对象， 对象中参数具体解析如下：
 | pageWidth  | 模板纸张宽度（mm） | Number | ——     | 750    |
 | pageHeight | 模板纸张高度（mm） | Number | ——     | 550    |
 | tempItems  | 模板打印项内容     | Array  | ——     | []     |
+| IconItems  | 模板图标打印项内容     | Array  | ——     | []     |
+
+### iconOptions 参数详解
+
+#### 参数示例：
+
+```javascript
+[{
+    type: "braid-icon",
+    isEdit: 1,
+    title: "表单icon",
+    value: "表单icon",
+    defaultValue: "表单icon",
+    name: "icon-1",
+    class: "icon-biaodan"
+  },...]
+```
+
+#### 参数说明：
+
+iconOptions 为图标配置项， 是一个数组对象，可根据项目需求在阿里icon库中添加图标，具体解析如下：
+
+##### iconOptions:
+
+| 参数       | 说明               | 类型   | 可选值 | 默认值 |
+| ---------- | ------------------ | ------ | ------ | ------ |
+| type      | 图表类型           | String | ——     | ——     |
+| class      | 图标class           | String | ——     | ——    |
+| name     | 图标名称           | String | ——     | ——    |
 
 ### widgetOptions 参数详解
 
