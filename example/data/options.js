@@ -224,7 +224,7 @@ export const OutStockOptions = [
       {
         title: "产品序列号（编码）",
         value: "产品序列号（编码）明细：<br>{产品序列号}",
-        name: "snCode1",
+        name: "snCode",
         trSet: {
           title: "产品序列号（编码）:",
           col: 5,
