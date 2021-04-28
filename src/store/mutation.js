@@ -183,12 +183,25 @@ export default {
     let index = 0;
     state.page.tempItems.forEach((item, idx) => {
       if (item.uuid === uuid) {
+        console.log("存在模板项");
         index = idx;
       }
     });
-    // 删除元件
-    state.page.tempItems.splice(index, 1);
 
+
+    state.page.IconItems.forEach((item, idx) => {
+      if (item.uuid === uuid) {
+        console.log("存在图标项");
+        index = idx;
+      }
+    });
+    if (type === "braid-icon") {
+      // 删除图标
+      state.page.IconItems.splice(index, 1);
+    } else {
+      // 删除元件
+      state.page.tempItems.splice(index, 1);
+    }
     // 重置 activeElement
     state.activeElement = getDefaultProps();
     state.type = "page";
