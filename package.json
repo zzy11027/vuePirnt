@@ -1,6 +1,6 @@
 {
   "name": "vue-lodop-print",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "基于VUE、LODOP、ElementUi、实现的打印模板自定义",
   "publish": true,
   "main": "lib/vue-lodop-print.umd.min.js",
