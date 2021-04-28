@@ -3,7 +3,7 @@ export const OutStockOptions = [
     type: "bar-code",
     isEdit: 1,
     title: "自定义条码",
-    value: "自定义条码",
+    value: "11111111111111111111111111",
     defaultValue: "自定义条码",
     name: ""
   },
@@ -214,19 +214,6 @@ export const OutStockOptions = [
         name: "snCode",
         trSet: {
           title: "产品序列号明细:",
-          col: 5,
-          margin: "50px"
-        },
-        type: "row",
-        isShowName: "isUseSn",
-        isShowValue: "1"
-      },
-      {
-        title: "产品序列号（编码）",
-        value: "产品序列号（编码）明细：<br>{产品序列号}",
-        name: "snCode",
-        trSet: {
-          title: "产品序列号（编码）:",
           col: 5,
           margin: "50px"
         },

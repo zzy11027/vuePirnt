@@ -64,7 +64,7 @@ export default {
   methods: {
     // 保存模板
     saveTemp() {
-      const svgRef = this.$children[0].$refs.svgIcon;
+      const svgRef = this.$children[0].$refs.svgIcon || [];
       const svgArr = [];
       svgRef.forEach((item, index) => {
         const iconDom = document.getElementById(`${this.$vptd.state.page.IconItems[index].class}`).innerHTML
