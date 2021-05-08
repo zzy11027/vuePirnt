@@ -2,6 +2,7 @@
 export const OutStockData = [
   {
     companyName: '四川某某公司',
+    orderNumber: '1234567890987654321',
     stockoutCode: 'CK-12345678910231',
     unitName: '北京代理商',
     handlerName: '刘某某',
@@ -48,6 +49,7 @@ export const OutStockData = [
 ]
 export const InStockData = [
   {
+    orderNumber: '1234567890987654321',
     companyName: '某某偶科技公司',
     purcheckCode: 'Rk-12345678910231',
     unitName: '四川分销商',

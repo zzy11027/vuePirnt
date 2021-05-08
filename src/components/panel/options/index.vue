@@ -66,7 +66,6 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.systemLayers)
   },
   methods: {
     // 添加组件

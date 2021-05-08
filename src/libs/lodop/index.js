@@ -1,6 +1,6 @@
 import getLodop from './LodopFuncs'
 import cloneDeep from 'lodash/cloneDeep'
-import { tableTempTohtml, imageTempTohtml, strTempToValue, htmlTempTohtml,svgTempTosvg } from './tools'
+import { tableTempTohtml, imageTempTohtml, strTempToValue, htmlTempTohtml,svgTempTosvg, htmlTempToLine } from './tools'
 
 let strCompanyName = ''
 let strLicense = ''
@@ -196,16 +196,9 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
       break
     case 'braid-html':
       {
-        let html = htmlTempTohtml(printItem.defaultValue, printItem.style)
-        if (printItem.style && printItem.style.AutoHeight == 1) {
-          LODOP.ADD_PRINT_HTM(
-            printItem.top,
-            printItem.left,
-            printItem.width,
-            'BottomMargin:' + printItem.style.BottomMargin + 'mm',
-            html
-          )
-        } else {
+        if (printItem.name === "H-line") {
+          let html = htmlTempToLine(printItem.defaultValue, printItem)
+          console.log('html :>> ', html);
           LODOP.ADD_PRINT_HTM(
             printItem.top,
             printItem.left,
@@ -213,7 +206,26 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
             printItem.height,
             html
           )
-
+        } else {
+          let html = htmlTempTohtml(printItem.defaultValue, printItem.style)
+          console.log('html :>> ', html);
+          if (printItem.style && printItem.style.AutoHeight == 1) {
+            LODOP.ADD_PRINT_HTM(
+              printItem.top,
+              printItem.left,
+              printItem.width,
+              "BottomMargin:" + printItem.style.BottomMargin + "mm",
+              html
+            );
+          } else {
+            LODOP.ADD_PRINT_HTM(
+              printItem.top,
+              printItem.left,
+              printItem.width,
+              printItem.height,
+              html
+            );
+          }
         }
       }
       break

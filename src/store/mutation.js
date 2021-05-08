@@ -75,6 +75,23 @@ export default {
 
     state.optionItems = optionsObject;
   },
+  initCustom(state, options) {
+    let optionsObject = options
+      ? options.map(item => {
+          let optionItem = {
+            ...state.widgetSetting[item.type],
+            ...item,
+            style: {
+              ...state.widgetSetting[item.type].style,
+              ...(item.style || {})
+            }
+          };
+          return optionItem;
+        })
+      : [];
+
+    state.customItems = optionsObject;
+  },
 
   // 初始化选中对象
   initActive(state) {

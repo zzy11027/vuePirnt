@@ -1,20 +1,22 @@
 <template>
-  <div
-    class="widgets"
-    v-html="val.value"
-    :contenteditable="!!val.isEdit"
-    @blur="(e) => updateText(e, val.uuid)"
-    :style="{
-      position:'absolute',
-      left: val.left + 'px' ,
-      top:  val.top + 'px',
-      width: val.width + 'px',
-      minHeight: val.height + 'px',
-      zIndex: val.style.zIndex,
-      fontSize: val.style.FontSize + 'pt',
-      color: val.style.FontColor,
-    }"
-  ></div>
+    <div
+      v-html="val.value"
+      class="widgets"
+      :contenteditable="!!val.isEdit"
+      @blur="(e) => updateText(e, val.uuid)"
+      :style="{
+        position:'absolute',
+        left: val.left + 'px' ,
+        top:  val.top + 'px',
+        width: val.width + 'px',
+        background: val.background,
+        height: val.height + 'px',
+        zIndex: val.style.zIndex,
+        fontSize: val.style.FontSize + 'pt',
+        color: val.style.FontColor,
+      }"
+      :class="{isLine:val.name !== 'H-line'}"
+    ></div>
 </template>
 
 <script>
@@ -30,8 +32,9 @@ export default {
     dragable: true, // 是否可拖拽
     resizable: true, // 尺寸是否可变
     dynamic: false, // 是否为动态内容
-    width: 120,
-    height: 40,
+    width: 200,
+    height: 2,
+    background:'#000',
     left: 50,
     top: 0,
     title: 'html',
@@ -48,6 +51,8 @@ export default {
   props: [
     'val', // 文本对象
   ],
+  mounted() {
+  },
   methods: {
     updateText(e, uuid) {
       let text = e.target.innerHTML
@@ -60,4 +65,10 @@ export default {
   },
 }
 </script>
+<style>
+  .isLine {
+    background: none!important;
+    height: 40px!important;
+  }
+</style>
 

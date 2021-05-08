@@ -20,7 +20,7 @@ import vptd from './mixins/vptd'
 import Vue from 'vue'
 import widgets from './components/widgets'
 import cloneDeep from 'lodash/cloneDeep'
-import {OutStockOptions,InStockOptions,iconArr} from './data/data.js'
+import {OutStockOptions,customItems,iconArr} from './data/data.js'
 export default {
   mixins: [vptd],
   name: 'vue-lodop-print',
@@ -47,14 +47,19 @@ export default {
       default: () => iconArr
     }
   },
+  data() {
+    return {
+      customItems,
+    }
+  },
   created() {
     Vue.use(widgets)
-
     // 设置模板组件默认属性
     this.$vptd.commit('setWidgetSetting', widgets.getWidgetsSetting())
     // 初始化设计器
     this.$vptd.dispatch('designerInit', {
       tempValue: cloneDeep(this.tempValue),
+      customItems: cloneDeep(this.customItems),
       options: cloneDeep(this.widgetOptions),
       icon: cloneDeep(this.iconOptions)
     })

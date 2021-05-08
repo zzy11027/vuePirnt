@@ -570,3 +570,63 @@ export const iconArr = [
     class: "icon-tongqian2"
   }
 ];
+
+export const customItems = [
+  {
+    type: "bar-code",
+    isEdit: 1,
+    title: "自定义条码",
+    value: "{barCode}",
+    defaultValue: "1234567890sdfwerqwe",
+    name: "barCode"
+  },
+  {
+    type: "braid-txt",
+    isEdit: 1,
+    title: "自定义文本",
+    value: "自定义文本",
+    defaultValue: "自定义文本",
+    name: ""
+  },
+  {
+    type: "braid-txt",
+    isEdit: 0,
+    title: "打印时间",
+    value: "打印时间",
+    defaultValue: "打印时间",
+    name: "printTime"
+  },
+  {
+    type: "braid-txt",
+    isEdit: 1,
+    title: "打印人",
+    value: "打印人",
+    defaultValue: "打印人",
+    name: ""
+  },
+  {
+    type: "braid-image",
+    isEdit: 1,
+    title: "自定义图片",
+    value: "https://cli.vuejs.org/favicon.png",
+    defaultValue: "https://cli.vuejs.org/favicon.png",
+    name: "orderImage"
+  },
+  {
+    type: "braid-html",
+    isEdit: 1,
+    title: "自定义线段",
+    value: "",
+    defaultValue: "",
+    name: "H-line"
+  },
+  {
+    type: "braid-html",
+    isEdit: 1,
+    title: "分页",
+    value: "<font><span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span></font>",
+    defaultValue:
+      "<font><span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span></font>",
+    name: ""
+  },
+];

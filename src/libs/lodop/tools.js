@@ -152,3 +152,9 @@ export const svgTempTosvg = (svgDom, style) => {
   console.log("svgDom :>> ", svgDom);
   return svg;
 };
+
+export const htmlTempToLine = (val, style) => {
+  console.log('style :>> ', style);
+  let line = `<div style=height:${style.height}px;width:${style.width}px;background:${style.background}></div>`;
+  return line;
+}

@@ -1,7 +1,7 @@
 <template>
   <div
     class="widgets"
-    v-html="val.value"
+    v-html="textValue(val.value,val.name)"
     :contenteditable="!!val.isEdit"
     @blur="(e) => updateText(e, val.uuid)"
     :style="{
@@ -72,7 +72,15 @@ export default {
         value: text
       })
     }
-  }
+  },
+  computed: {
+    textValue() {
+      return function(val,name) {
+        const time = name === 'printTime' ? new Date().toLocaleString() : val;
+        return time;
+      }
+    }
+  },
 }
 </script>
 

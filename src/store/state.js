@@ -25,6 +25,7 @@ export default {
     IconItems: [] //图标已选项
   },
   optionItems: [], // 可选项
+  customItems: [], // 自定义可选项 (非接口数据)
   optionIcons: [], // 可选图标
 
   //模板参数

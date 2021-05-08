@@ -18,7 +18,9 @@ export default {
 
   // 初始化模板设计器
   async designerInit({ state, commit, store }, tempInfo) {
+    console.log('tempInfo :>> ', tempInfo);
     commit("initOptionItems", tempInfo.options);
+    commit("initCustom", tempInfo.customItems);
     commit("initPage", tempInfo.tempValue);
     commit("initIcon", tempInfo.icon);
   }

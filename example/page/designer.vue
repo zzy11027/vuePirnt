@@ -28,7 +28,6 @@ export default {
     try {
       let tempList = JSON.parse(localStorage.getItem('tempList')) || []
       this.value = tempList[this.index]
-      console.log('value :>> ', value);
       this.widgets = this.value.type == 1 ? OutStockOptions : InStockOptions
     } catch (err) {
       console.error(err);
