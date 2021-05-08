@@ -10,8 +10,8 @@ export const OutStockOptions = [
   {
     type: "braid-txt",
     isEdit: 1,
-    title: "自定义文本111",
-    value: "自定义文本",
+    title: "自定义文本11222333",
+    value: "自定义文本123",
     defaultValue: "自定义文本",
     name: ""
   },
