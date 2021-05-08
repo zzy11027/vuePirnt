@@ -208,7 +208,8 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
           )
         } else {
           let html = htmlTempTohtml(printItem.defaultValue, printItem.style)
-          console.log('html :>> ', html);
+          console.log('printItem :>> ', printItem);
+          console.log("html :>> ", html);
           if (printItem.style && printItem.style.AutoHeight == 1) {
             LODOP.ADD_PRINT_HTM(
               printItem.top,
@@ -218,11 +219,12 @@ function _AddPrintItem(LODOP, printItem, pageIndex = 0) {
               html
             );
           } else {
+            console.log('printItem :>> ', printItem);
             LODOP.ADD_PRINT_HTM(
               printItem.top,
               printItem.left,
               printItem.width,
-              printItem.height,
+              40,
               html
             );
           }

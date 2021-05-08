@@ -624,9 +624,9 @@ export const customItems = [
     type: "braid-html",
     isEdit: 1,
     title: "分页",
-    value: "<font><span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span></font>",
+    value: "<span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span>",
     defaultValue:
-      "<font><span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span></font>",
+      "<span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span>",
     name: ""
   },
 ];
