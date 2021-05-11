@@ -1,6 +1,7 @@
 
 export const OutStockData = [
   {
+    barCode:'66666666666666666',
     companyName: '四川某某公司',
     orderNumber: '1234567890987654321',
     stockoutCode: 'CK-12345678910231',

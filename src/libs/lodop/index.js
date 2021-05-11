@@ -149,7 +149,8 @@ function _TempParser(tempItem, data) {
         let item = cloneDeep(tempItem)
         if (item.name && item.type !== "braid-icon") {
           item.defaultValue = dataItem[item.name];
-          item.value = strTempToValue(item.value, item.defaultValue || "");
+          // item.value = strTempToValue(item.value, item.defaultValue || ""); // 以 { 开始或者以  } 结束，将defaultValue替换成value
+          item.value = item.defaultValue; // 项目中不存在{}的格式，所以直接将defaultValue赋值给value
         }
         return item
       })
