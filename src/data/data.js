@@ -578,7 +578,7 @@ export const customItems = [
     title: "自定义条码",
     value: "{barCode}",
     defaultValue: "1234567890sdfwerqwe",
-    name: "barCode"
+    name: "wms_order_code"
   },
   {
     type: "braid-txt",
