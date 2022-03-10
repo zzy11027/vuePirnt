@@ -144,7 +144,7 @@ export default {
   },
   computed: {
     activeElement() {
-      // console.log('this.$vptd.state.activeElement :>> ', this.$vptd.state.activeElement);
+      console.log('this.$vptd.state.activeElement :>> ', this.$vptd.state.activeElement);
       return this.$vptd.state.activeElement
     },
     // 页面高度

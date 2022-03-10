@@ -73,7 +73,8 @@ export const getCodeTypeArray = () => [
   "93Extended",
   "MSI",
   "PostNet",
-  "Codabar"
+  "Codabar",
+  "QRCode"
 ];
 
 export const getItemTypeArray = () => [

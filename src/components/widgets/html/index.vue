@@ -52,6 +52,7 @@ export default {
     'val', // 文本对象
   ],
   mounted() {
+    console.log('this.val :>> ', this.val);
   },
   methods: {
     updateText(e, uuid) {
